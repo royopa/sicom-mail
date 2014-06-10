@@ -1,0 +1,39 @@
+{% extends "email_layout.html.twig" %}
+
+{% block body %}
+
+<div class="col-xs-12 col-md-8 bg-success">
+    <p class="text-left">Prezado(a) {{ participante.nome }}</p>
+    </br>
+    <p class="paragrafo_email">Informamos que a ata do <b>{{ nome_comite }} - {{ numero_ata }}/{{ ano_ata }}</b>, realizado em  <b>{{ data_comite }}</b>  já está disponível para consulta, revisão e aprovação nos links abaixo:</p>
+
+    {% if file_comite != '' %}
+    <p class="paragrafo_email">
+      <a href="http://10.5.16.109/sicom/web/{{ file_comite }}">
+        <button type="button" class="btn btn-primary btn-xs">Visualizar Ata</button>
+      </a>
+    </p>
+    {% endif %}
+
+    <p class="paragrafo_email">
+      <a href="http://10.5.16.109/sicom/web/comite/{{ id_comite }}/edit">
+        <button type="button" class="btn btn-primary btn-xs">Visualizar Comitê</button>
+      </a>
+    </p>
+
+    <p class="paragrafo_email">
+      <a href="http://10.5.16.109/sicom/web/participante/participante_assinar_ata?participante_id={{ participante.id }}">
+        <button type="button" class="btn btn-primary btn-xs">Revisar e Assinar Ata</button>
+      </a>
+    </p>
+
+    </br>
+    <p>Atenciosamente,</p>
+    </br>
+    <address>
+      <strong>SICOM - Sistema de Controle de Comitês</strong><br>
+      <small>Mensagem enviada por ({{ matricula_remetente }} - {{ nome_remetente }})</small>
+    </address>
+</div>
+
+{% endblock %}
