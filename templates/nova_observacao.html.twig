@@ -1,0 +1,28 @@
+{% extends "email_layout.html.twig" %}
+
+{% block body %}
+
+<div class="col-xs-12 col-md-8 bg-success">
+    <p class="text-left">À</p>
+    <p class="text-left">{{ unidade.sigla }} - {{ unidade.nome }}</p>
+    </br>
+    <p class="paragrafo_email">Informamos que o participante do <b>{{ comite.nome }} - {{ comite.numero_ata }}/{{ comite.ano_ata }}</b>, realizado em  <b>{{ comite.data_comite|date("d/m/Y") }}</b>, <b>{{ participante.matricula }} - {{ participante.nome }}</b> registrou uma sugestão para revisão da ata.</p>
+
+    <p>Para consultar as informações registradas, utilize o link abaixo:</p>
+
+    <p class="paragrafo_email">
+      <a href="http://10.5.16.109/sicom/web/comite/{{ comite.id }}/edit">
+        <button type="button" class="btn btn-primary btn-xs">Visualizar Comitê</button>
+      </a>
+    </p>
+
+    </br>
+    <p>Atenciosamente,</p>
+    </br>
+    <address>
+      <strong>SICOM - Sistema de Controle de Comitês</strong><br>
+      <small>Mensagem enviada automaticamente pelo sistema </small>
+    </address>
+</div>
+
+{% endblock %}
